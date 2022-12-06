@@ -134,6 +134,15 @@ span {
     background-color: #ff2277;
     color: #fff;
 }
+.footer > p {
+    background-color: #303030;
+    color: #eeeeee;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
 
 /* media queries iphone */
 @media screen and (max-width: 800px) {
@@ -177,6 +186,10 @@ span {
     .winning-card > img {
         width: 100%;
         height: 100%;
+    }
+    .footer > p {
+        font-size: 8px;
+        text-align: center;
     }
 }
 
@@ -233,5 +246,8 @@ span {
     .winning-card > img {
         width: 100%;
         height: 100%;
+    }
+    .footer > p {
+        font-size: 14px;
     }
 }
