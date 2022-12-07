@@ -1,6 +1,8 @@
 const gameContainer = document.querySelector(".game-container");
 const gameCards = document.querySelectorAll(".game-card");
 const startGame = document.querySelector(".startgame");
+const infoContainer = document.querySelector(".info-container");
+const winningContainer = document.querySelector(".winning-container");
 const loteriaCards = [
     "./assets/loteria-cards/01-El-Gallo.png",
     "./assets/loteria-cards/02-El-Diablito.png",
@@ -61,6 +63,13 @@ const loteriaCards = [
 /* when startgame clicked, update innerhtml to replace all 16 gamecards with loteriacards */
 startGame.addEventListener("click", () => {
     gameCards.forEach((card) => {
+        
+        infoContainer.innerHTML = 
+        `<div> 
+            <h2 style="color: cyan">Game Started!</h2>
+            <img src="./assets/loteria.png" alt="loteria-card" style="width: 300px" />
+        </div>`;
+
         card.innerHTML = 
         `<div>
             <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
@@ -85,7 +94,15 @@ startGame.addEventListener("click", () => {
             <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
             <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
             <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+        </div>`;
+
+        winningContainer.innerHTML = 
+        `<div class="winning-card">
+            <h2 style="color: cyan">Card in play</h2>
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" style="width: 300px" />
         </div>
-        `;
+        <div class="winning-button">
+            <button class="loteria-button">LOTERIA!</button>
+        </div>`;
     });
 });
