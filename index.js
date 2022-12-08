@@ -83,7 +83,6 @@ const loteriaBeans = [
     "./assets/loteria-tokens/token-19.png",  
 ];
 
-/* when startgame clicked, update innerhtml to replace all 16 gamecards with loteriacards */
 startGame.addEventListener("click", () => {
     gameCards.forEach((card) => {
         const audio = new Audio("./assets/loteria.mp3");
@@ -153,6 +152,11 @@ startGame.addEventListener("click", () => {
             <button class="loteria-button">LOTERIA!</button>
         </div>`;
 
+        setInterval(() => {
+            document.querySelector(".card-in-play").src =
+            `${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}`;
+        }, 5000);
+
         /* end game when loteria button clicked */
         document.querySelector(".loteria-button").addEventListener("click", () => {
             gameContainer.innerHTML =
@@ -173,6 +177,7 @@ startGame.addEventListener("click", () => {
             infoContainer.style.display = "none";
             winningContainer.style.display = "none";
             hero.style.backgroundColor = "PaleVioletRed";
+            clearInterval();
 
             document.querySelector(".play-again").addEventListener("click", () => {
                 location.reload();
