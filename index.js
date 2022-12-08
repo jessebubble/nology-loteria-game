@@ -82,66 +82,69 @@ const loteriaBeans = [
     "./assets/loteria-tokens/token-18.png",
     "./assets/loteria-tokens/token-19.png",  
 ];
+const audio = new Audio("./assets/loteria.mp3");
 
 startGame.addEventListener("click", () => {
     gameCards.forEach((card) => {
-        const audio = new Audio("./assets/loteria.mp3");
-            audio.loop = true;
-            audio.play();
+        audio.play();
+
+        card.innerHTML = 
+        `<div class="loteria-card">
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+        </div>
+        <div class="loteria-card">
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+        </div>
+        <div class="loteria-card">
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+        </div>
+        <div class="loteria-card">
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
+        </div>`;
 
         infoContainer.innerHTML = 
         `<div> 
             <h2 style="color: cyan">Game Started!</h2>
             <img class="nology" src="./assets/loteria.png" alt="loteria-card" style="width: 300px" />
         </div>
-        <div class="loteria-beans">
+        <div class="loteria-bean">
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />            
         </div>
-        <div class="loteria-beans">
+        <div class="loteria-bean">
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />            
         </div>
-        <div class="loteria-beans">
+        <div class="loteria-bean">
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />
             <img src="${loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)]}" alt="loteria-token" style="width: 40px" />            
         </div>`;
 
-        document.querySelector(".nology").addEventListener("click", () => {
-            audio.pause();
-        });
-
-        card.innerHTML = 
-        `<div class="loteria-cards">
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-        </div>
-        <div class="loteria-cards">
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-        </div>
-        <div class="loteria-cards">
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-        </div>
-        <div class="loteria-cards">
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" />
-        </div>`;
+            document.querySelector(".nology").addEventListener("click", () => {
+                audio.play();
+                audio.loop = true;
+            });
+            document.querySelector(".nology").addEventListener("dblclick", () => {
+                audio.pause();
+            });
 
         winningContainer.innerHTML = 
         `<div class="winning-card">
@@ -150,14 +153,21 @@ startGame.addEventListener("click", () => {
         </div>
         <div class="winning-button">
             <button class="loteria-button">LOTERIA!</button>
-        </div>`;
+        </div>`;        
 
         setInterval(() => {
             document.querySelector(".card-in-play").src =
             `${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}`;
-        }, 5000);
+        }, 3000);
 
-        /* end game when loteria button clicked */
+        document.querySelectorAll(".loteria-card img").forEach((card) => {
+            card.addEventListener("click", () => {
+                if (card.src === document.querySelector(".card-in-play").src) {
+                    card.src = loteriaBeans[Math.floor(Math.random() * loteriaBeans.length)];                    
+                }
+            });
+        });
+
         document.querySelector(".loteria-button").addEventListener("click", () => {
             gameContainer.innerHTML =
             `<div class="end-game">
