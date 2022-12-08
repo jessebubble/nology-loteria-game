@@ -40,6 +40,13 @@
     width: 50%;
     height: 50%;
 }
+.loteria-beans {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 .game-container {
     padding: 10px;
     width: 100%;
