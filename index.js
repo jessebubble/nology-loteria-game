@@ -3,6 +3,7 @@ const gameCards = document.querySelectorAll(".game-card");
 const startGame = document.querySelector(".startgame");
 const infoContainer = document.querySelector(".info-container");
 const winningContainer = document.querySelector(".winning-container");
+const hero = document.querySelector(".hero");
 const loteriaCards = [
     "./assets/loteria-cards/01-El-Gallo.png",
     "./assets/loteria-cards/02-El-Diablito.png",
@@ -63,12 +64,19 @@ const loteriaCards = [
 /* when startgame clicked, update innerhtml to replace all 16 gamecards with loteriacards */
 startGame.addEventListener("click", () => {
     gameCards.forEach((card) => {
-        
+        const audio = new Audio("./assets/loteria.mp3");
+            audio.loop = true;
+            audio.play();
+
         infoContainer.innerHTML = 
         `<div> 
             <h2 style="color: cyan">Game Started!</h2>
-            <img src="./assets/loteria.png" alt="loteria-card" style="width: 300px" />
+            <img class="nology" src="./assets/loteria.png" alt="loteria-card" style="width: 300px" />
         </div>`;
+
+        document.querySelector(".nology").addEventListener("click", () => {
+            audio.pause();
+        });
 
         card.innerHTML = 
         `<div>
@@ -99,10 +107,37 @@ startGame.addEventListener("click", () => {
         winningContainer.innerHTML = 
         `<div class="winning-card">
             <h2 style="color: cyan">Card in play</h2>
-            <img src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" style="width: 300px" />
+            <img class="card-in-play" src="${loteriaCards[Math.floor(Math.random() * loteriaCards.length)]}" alt="loteria-card" style="width: 300px" />
         </div>
         <div class="winning-button">
             <button class="loteria-button">LOTERIA!</button>
         </div>`;
+
+        /* end game when loteria button clicked */
+        document.querySelector(".loteria-button").addEventListener("click", () => {
+            gameContainer.innerHTML =
+            `<div class="end-game">
+                <img class="nology" src="./assets/loteria.png" alt="loteria-card" style="width: 300px" />
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    id="loteriaVideo">
+                    <source src="./assets/loteria.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="play-again">
+                <button class="play-again">Congratulations!, un juego más?</button>
+            </div>`;
+
+            infoContainer.style.display = "none";
+            winningContainer.style.display = "none";
+            hero.style.backgroundColor = "PaleVioletRed";
+
+            document.querySelector(".play-again").addEventListener("click", () => {
+                location.reload();
+
+            });  
+        });
     });
 });
